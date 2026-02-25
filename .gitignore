@@ -1,1 +1,62 @@
-node_modules
+# Node modules
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Builds / compilados
+dist/
+frontend/dist/
+backend/dist/
+build/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+
+# Coverage / test
+coverage/
+.nyc_output/
+
+# IDEs / editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# VSCode (mantener configuraciones importantes)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+frontend/.env
+backend/.env
+
+# Temp / runtime
+.temp
+.tmp
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
