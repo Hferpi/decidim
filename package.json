@@ -1,0 +1,13 @@
+{
+  "name": "decidim",
+  "version": "0.1.0",
+  "description": "Decidim is a SaaS application designed to modernize and digitalize voting processes in educational institutions.",
+  "main": "index.js",
+   "scripts": {
+     "dev": "pnpm -r --parallel dev"
+   },
+  "keywords": [],
+  "author": "hferpi",
+  "license": "MIT",
+  "packageManager": "pnpm@10.19.0"
+}
