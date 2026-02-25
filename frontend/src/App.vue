@@ -1,7 +1,10 @@
+<script setup>
+import Home from './views/Home.vue'
+</script>
+
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-black text-white">
-    <h1 class="text-4xl font-bold">
-      Tailwind funciona 🚀
-    </h1>
+  <div class="min-h-screen flex flex-col items-center p-3 bg-green-900 text-white">
+    <Home></Home>
   </div>
 </template>
+
