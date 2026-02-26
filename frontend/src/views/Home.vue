@@ -1,13 +1,12 @@
 <script setup>
 import Header from '../components/Header.vue'
-import { Search, Trees, Clock } from 'lucide-vue-next';
 </script>
 
 <template>
   <Header />
   <div class="relative w-full max-w-md mt-4">
 
-    <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-amber-50 " />
+    <i class="pi pi-search absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-amber-50 "></i>
 
 
     <input type="text" class="bg-green-700 text-amber-50 p-3 pl-10 rounded-2xl w-full placeholder-gray-200"
@@ -18,17 +17,18 @@ import { Search, Trees, Clock } from 'lucide-vue-next';
     <p class="p-2 bg-green-700 rounded-2xl cursor-pointer hover:bg-green-400 hover:text-gray-800">Todos</p>
     <p class="p-2 bg-green-700 rounded-2xl">Activos</p>
   </nav>
-  <h3 class="ml-14 text-2xl w-full">DESTACADOS</h3>
+  <h3 class="px-6 text-2xl w-full text-left">DESTACADOS</h3>
   <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
     <div class="bg-green-700 p-6  rounded-2xl w-full mt-5">
       <div class="flex justify-between">
         <p class="p-2 rounded-3xl bg-green-600">Estado</p>
-        <div class="flex gap-2"><Clock/><p>Dias restantes</p></div>
+        <div class="flex gap-2"><i class="pi pi-clock"></i><p>Dias restantes</p></div>
       </div>
       <div class="flex mt-3 gap-4">
 
         <div class="bg-green-600 rounded-full flex items-center justify-center w-12 h-12 p-3">
-          <Trees class="w-8 h-8 stroke-white" />
+      
+          <i class="pi pi-tree w-8 h-8 stroke-white"></i>
         </div>
 
 
@@ -50,7 +50,7 @@ import { Search, Trees, Clock } from 'lucide-vue-next';
       </div>
       <div class="flex mt-3 gap-4">
         <div class="bg-green-600 rounded-full flex items-center justify-center w-12 h-12 p-3">
-          <Trees class="w-8 h-8 stroke-white" />
+           <i class="pi pi-tree w-8 h-8 stroke-white"></i>
         </div>
 
         <div>
@@ -71,7 +71,7 @@ import { Search, Trees, Clock } from 'lucide-vue-next';
       </div>
       <div class="flex mt-3 gap-4">
         <div class="bg-green-600 rounded-full flex items-center justify-center w-12 h-12 p-3">
-          <Trees class="w-8 h-8 stroke-white" />
+          <i class="pi pi-tree w-8 h-8 stroke-white"></i>
         </div>
 
 

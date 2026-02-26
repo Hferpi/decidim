@@ -1,5 +1,5 @@
 <script setup>
-import { Mail } from 'lucide-vue-next';
+
 import { headerPerson } from '../data/headerData';
 import { reactive } from 'vue'
 
@@ -16,7 +16,7 @@ const person = reactive(headerPerson)
       </div>
     </div>
     <div class="flex items-center bg-green-700 p-3 rounded-full m-2 cursor-pointer">
-      <Mail class="w-9 h-9 text-white" />
+      <i class="pi pi-envelope w-9 h-9 text-white"></i>
     </div>
   </section>
 </template>

@@ -3,47 +3,19 @@ import InputText from 'primevue/inputtext'
 import Button from 'primevue/button'
 import { ref } from 'vue'
 import { useToast } from 'primevue/usetoast'
-import { useAppStore } from "@/stores/appStore";
-import api from '@/services/api';
 
 const toast = useToast()
-const store = useAppStore();
 
 const email = ref('')
 const password = ref('')
 
-async function login() {
-    if (!email.value || !password.value) return;
-
-  try {
-    const res = await api.get(`/users/${email.value}`);
-    const user = res.data;
-
-    if (user && user.password === password.value) {
-      store.setUser(user); 
-      toast.add({
-        severity: "success",
-        summary: "Login",
-        detail: `Bienvenido ${user.name}`,
-        life: 3000,
-      });
-      window.location.href = "/home";
-    } else {
-      toast.add({
-        severity: "error",
-        summary: "Login",
-        detail: "Usuario o contraseña incorrectos",
-        life: 3000,
-      });
-    }
-  } catch (error) {
+function login() {
     toast.add({
-      severity: "error",
-      summary: "Login",
-      detail: "Error al conectar con el backend",
-      life: 3000,
-    });
-  }
+        severity: 'success',
+        summary: 'Login',
+        detail: 'Intentando iniciar sesión',
+        life: 3000
+    })
 }
 </script>
 
@@ -53,14 +25,14 @@ async function login() {
         <form >
             <fieldset class="border-2 border-gray-200 p-10 rounded drop-shadow-[0_8px_15px_rgba(0,0,0,0.3)]">
                 <legend class="text-4xl font-bold p-4 drop-shadow-2xl">
-                   Login
+                   Registrar usuario
                 </legend>
               
                 <div class="flex flex-col gap-8 w-80">
 
                     <div class="flex items-center gap-2">
                         <i class="pi pi-user text-xl"></i>
-                        <InputText v-model="email" placeholder="Email" class="w-full" />
+                        <InputText v-model="email" placeholder="Usuario" class="w-full" />
                     </div>
 
                     <div class="flex items-center gap-2">
@@ -68,9 +40,8 @@ async function login() {
                         <InputText v-model="password" type="password" placeholder="Contraseña" class="w-full" />
                     </div>
 
-                    <Button label="Entrar" @click="login" />
-
-                    <p class="text-center"> ¿No tienes cuenta?  <a href="#" class="text-blue-400">Contacta </a> con el administrador</p>
+                    <Button label="Registrar" @click="login" />
+                    
                 </div>
             </fieldset>
         </form>
