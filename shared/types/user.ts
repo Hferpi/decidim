@@ -1,9 +1,11 @@
-export type Roles = {
+export const Roles = {
   ADMIN: 'ADMINISTRADOR',
   STUDENT: 'ESTUDIANTE',
   PARENTS: 'PADRES',
   TEACHER: 'PROFESOR',
-}
+} as const
+
+export type RoleType = typeof Roles[keyof typeof Roles]
 
 export type VocationalFiel = {
   Letters: 'LETRAS',
@@ -21,11 +23,12 @@ export interface User {
   name: string
   password: string
   classroom: string
-  rol: Roles
+  rol: RoleType
   vocational_field: VocationalFiel
   sex?: 'H' | 'M'
   img?: string
   nie?: string
   email?: string
+  created_at: Date
 }
 //TODO: ecrypt pass
