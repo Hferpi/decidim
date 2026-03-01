@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
@@ -22,22 +22,26 @@ export class UsersService {
   }
 
   async create(userDto: CreateUserDto) {
-    const hashedPassword = await bcrypt.hash(userDto.password, 10);
 
-    console.log('--- NUEVO HASH GENERADO ---');
-    console.log('Password original:', userDto.password);
-    console.log('Hash para la DB:', hashedPassword);
-    console.log('---------------------------');
+    const existingUser = await this.userRepo.findOne({
+      where: { email: userDto.email }
+    });
+
+    if (existingUser) {
+      throw new BadRequestException('El email ya existe');
+    }
+
+
+    const hashedPassword = await bcrypt.hash(userDto.password, 10);
 
     const newUser = this.userRepo.create({
       ...userDto,
       password: hashedPassword,
     });
 
-    const savedUser = await this.userRepo.save(newUser);
+    await this.userRepo.save(newUser);
 
-    const { password, ...result } = savedUser;
-    return result;
+    return { success: true };
   }
 
   async validateUser(email: string, pass: string) {

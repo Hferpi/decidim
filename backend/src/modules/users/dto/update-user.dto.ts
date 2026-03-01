@@ -6,7 +6,7 @@ import {
   MinLength
 } from 'class-validator';
 
-import { Roles, VocationalFiel } from '../../types/user';
+import { Roles, VocationalFields } from '../../types/user';
 
 export class UpdateUserDto {
 
@@ -27,8 +27,8 @@ export class UpdateUserDto {
   rol?: Roles;
 
   @IsOptional()
-  @IsEnum(VocationalFiel)
-  vocational_field?: VocationalFiel;
+  @IsEnum(VocationalFields)
+  vocational_field?: VocationalFields;
 
   @IsOptional()
   sex?: 'H' | 'M';

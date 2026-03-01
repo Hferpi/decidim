@@ -3,11 +3,20 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UnauthorizedException } from '@nestjs/common';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { Roles, VocationalFields } from '../types/user';
 
 
 @Controller('users')
 export class UsersController {
   constructor(private readonly userService: UsersService) { }
+
+  @Get('enums')
+  getEnums() {
+    return {
+      roles: Object.values(Roles),
+      vocationalFields: Object.values(VocationalFields),
+    };
+  }
 
   @Get()
   getAll() {
@@ -26,12 +35,12 @@ export class UsersController {
 
     return message
   }
-  
+
 
   @Post()
   createUser(@Body() user: CreateUserDto) {
+   return this.userService.create(user);
 
-    return this.userService.create(user);
   }
 
   @Post('login')

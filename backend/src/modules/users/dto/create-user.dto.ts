@@ -1,5 +1,5 @@
 import { IsEmail, IsEnum, IsNotEmpty, IsOptional, IsString, MinLength } from 'class-validator';
-import { Roles, VocationalFiel } from '../../types/user';
+import { Roles, VocationalFields } from '../../types/user';
 
 
 export class CreateUserDto {
@@ -19,9 +19,9 @@ export class CreateUserDto {
   @IsEnum(Roles)
   rol: Roles;
 
-  @IsNotEmpty()
-  @IsEnum(VocationalFiel)
-  vocational_field?: VocationalFiel;
+  @IsOptional()
+  @IsEnum(VocationalFields)
+  vocational_field?: VocationalFields;
 
   @IsOptional()
   @IsString()

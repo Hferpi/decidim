@@ -5,7 +5,7 @@ export enum Roles {
   TEACHER = 'PROFESOR',
 }
 
-export enum VocationalFiel {
+export enum VocationalFields {
   LETTERS = 'LETRAS',
   NUMBERS = 'NUMEROS',
   DAW = 'GS DAW',
@@ -24,11 +24,10 @@ export interface User {
   password: string
   classroom: string
   rol: Roles
-  vocational_field?: VocationalFiel
+  vocational_field?: VocationalFields
   sex?: 'H' | 'M'
   img?: string
   nie: string
   email?: string
   created_at: Date
 }
-//TODO: ecrypt pass

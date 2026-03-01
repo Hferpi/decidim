@@ -1,6 +1,6 @@
 
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-import { Roles, VocationalFiel } from '../types/user'
+import { Roles, VocationalFields } from '../types/user'
 
 
 @Entity( {name: 'users'})
@@ -11,7 +11,7 @@ export class User {
   @Column()
   name: string;
 
-  @Column()
+  @Column({unique: true})
   email: string;
 
   @Column()
@@ -29,8 +29,8 @@ export class User {
   @Column()
   nie: string;
 
-  @Column({ type: 'enum', enum: VocationalFiel, nullable: true })
-  vocational_field?: VocationalFiel;
+  @Column({ type: 'enum', enum: VocationalFields, nullable: true })
+  vocational_field?: VocationalFields;
 
   @Column({ type: 'enum', enum: Roles })
   rol: Roles;
