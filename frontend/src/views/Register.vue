@@ -40,7 +40,7 @@ function login() {
                         <InputText v-model="password" type="password" placeholder="Contraseña" class="w-full" />
                     </div>
 
-                    <Button label="Registrar" @click="login" />
+                    <Button label="Registrar"  @click="login" />
                     
                 </div>
             </fieldset>

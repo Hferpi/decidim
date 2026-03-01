@@ -5,42 +5,41 @@ import { ref } from 'vue'
 import { useToast } from 'primevue/usetoast'
 import { useAppStore } from "@/stores/appStore";
 import api from '@/services/api';
+import { useRouter } from 'vue-router';
 
 const toast = useToast()
 const store = useAppStore();
-
+const router = useRouter();
 const email = ref('')
 const password = ref('')
 
 async function login() {
-    if (!email.value || !password.value) return;
+  if (!email.value || !password.value) return;
 
   try {
-    const res = await api.get(`/users/${email.value}`);
+    const res = await api.post('/users/login', {
+      email: email.value,
+      password: password.value
+    });
+
     const user = res.data;
 
-    if (user && user.password === password.value) {
-      store.setUser(user); 
-      toast.add({
-        severity: "success",
-        summary: "Login",
-        detail: `Bienvenido ${user.name}`,
-        life: 3000,
-      });
-      window.location.href = "/home";
-    } else {
-      toast.add({
-        severity: "error",
-        summary: "Login",
-        detail: "Usuario o contraseña incorrectos",
-        life: 3000,
-      });
-    }
+    store.setUser(user); 
+    toast.add({
+      severity: "success",
+      summary: "Login",
+      detail: `Bienvenido ${user.name}`,
+      life: 3000,
+    });
+    
+   
+    router.push({name:'home'})
+
   } catch (error) {
     toast.add({
       severity: "error",
-      summary: "Login",
-      detail: "Error al conectar con el backend",
+      summary: "Error",
+      detail: "Usuario o contraseña incorrectos",
       life: 3000,
     });
   }
@@ -48,7 +47,7 @@ async function login() {
 </script>
 
 <template>
-    <section class="flex flex-col justify-center items-center min-h-screen">
+    <section class="flex flex-col justify-center items-center min-h-full">
         <img src="/brand/marca-color.png" alt="brand" class="md:w-1/4 w-2/4 drop-shadow-[0_8px_15px_rgba(0,0,0,0.5)]">
         <form >
             <fieldset class="border-2 border-gray-200 p-10 rounded drop-shadow-[0_8px_15px_rgba(0,0,0,0.3)]">

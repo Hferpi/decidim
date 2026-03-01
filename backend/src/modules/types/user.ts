@@ -6,13 +6,14 @@ export enum Roles {
 }
 
 export enum VocationalFiel {
-  Letters = 'LETRAS',
-  Numbers = 'NUMEROS',
+  LETTERS = 'LETRAS',
+  NUMBERS = 'NUMEROS',
   DAW = 'GS DAW',
   DAM = 'GS DAM',
-  Sports = 'GS DEPORTES',
+  SPORTS = 'GS DEPORTES',
   ADE = 'GS ADE',
   FPB = 'FPB',
+
 }
 
 //TODO: preguntar a javi por que cursos hay 

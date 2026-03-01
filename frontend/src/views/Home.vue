@@ -2,9 +2,9 @@
 import Header from '../components/Header.vue'
 </script>
 
-<template>
+<template >
   <Header />
-  <div class="relative w-full max-w-md mt-4">
+  <div class="relative  w-full max-w-md mt-4">
 
     <i class="pi pi-search absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-amber-50 "></i>
 
