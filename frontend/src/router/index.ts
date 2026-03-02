@@ -2,9 +2,11 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import Login from '@/views/Login.vue'
 import Home from '@/views/Home.vue'
-import Register from '@/views/Register.vue'
-import { Roles } from '../../../shared/types/user'
-import { useAppStore } from "@/stores/appStore";
+import { Roles } from '../../shared/types/user'
+import { useAppStore } from "../stores/appStore";
+import Register from '../views/users/Register.vue'
+import EditUsers from '../views/users/EditUsers.vue'
+import AllUsers from '../views/users/AllUsers.vue'
 
 const routes = [
     {
@@ -24,6 +26,18 @@ const routes = [
       meta: { requiresAuth: false, roles: [Roles.ADMIN] }
     },
     {
+      path: '/all-users',
+      name: 'all-users',
+      component: AllUsers,
+      meta: { requiresAuth: false, roles: [Roles.ADMIN] }
+    },
+      {
+      path: '/edit-user',
+      name: 'edit-user',
+      component: EditUsers,
+      meta: { requiresAuth: false, roles: [Roles.ADMIN] }
+    },
+    {
       path: '/home',
       name: 'home',
       component: Home,
@@ -36,14 +50,14 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach((to,from,next)=>{
-      const store = useAppStore();
+router.beforeEach((to, _from, next) => {
+  const store = useAppStore();
   const user = store.user;
 
   if (to.meta.requiresAuth && !user) {
     next("/login");
-  } else if (to.meta.roles && user && !to.meta.roles.includes(user.rol)) {
-    next("/login"); 
+  } else if (to.meta.roles && user && !(to.meta.roles as Roles[]).includes(user.rol)) {
+    next("/login");
   } else {
     next();
   }

@@ -12,7 +12,6 @@ import { GraphicsModule } from './modules/graphics/graphics.module';
       isGlobal: true,
     }),
 
-
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DATABASE_HOST,

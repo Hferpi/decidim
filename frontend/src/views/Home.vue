@@ -1,9 +1,11 @@
 <script setup>
 import Header from '../components/Header.vue'
+import MenuBar from '../components/MenuBar.vue';
 </script>
 
 <template >
   <Header />
+  <MenuBar/>
   <div class="relative  w-full max-w-md mt-4">
 
     <i class="pi pi-search absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-amber-50 "></i>

@@ -7,7 +7,7 @@ import Select from 'primevue/select';
 import api from '@/services/api';
 import RadioButton from 'primevue/radiobutton';
 import RadioButtonGroup from 'primevue/radiobuttongroup';
-import MenuBar from '../components/MenuBar.vue'
+import MenuBar from '../../components/MenuBar.vue'
 
 
 
@@ -92,9 +92,9 @@ function restart() {
 </script>
 
 <template>
-    <section class="flex flex-col justify-center items-center">
-        <img src="/brand/marca-color.png" alt="brand" class="md:w-1/4 w-2/4 drop-shadow-[0_8px_15px_rgba(0,0,0,0.5)]">
-        <MenuBar/>
+    <!-- <img src="/brand/marca-color.png" alt="brand" class="md:w-1/4 w-2/4 drop-shadow-[0_8px_15px_rgba(0,0,0,0.5)]">  ELIMINAR?-->
+    <MenuBar/>
+    <section class="flex flex-col mt-5 justify-center items-center">
         <form @submit.prevent="register" class="max-w-6xl mx-auto">
             <fieldset class="border border-gray-300 rounded-2xl shadow-lg p-8">
 

@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class GraphicsService {
-
     private graphics = [
         {
         id: 1,

@@ -1,5 +1,5 @@
 // frontend/src/stores/appStore.ts
-import type { User } from "@/shared/types/user";
+import type { User } from "../../shared/types/user";
 import { defineStore } from "pinia";
 
 export const useAppStore = defineStore("app", {

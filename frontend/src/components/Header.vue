@@ -1,17 +1,16 @@
 <script setup>
 
-import { headerPerson } from '../data/headerData';
 import { reactive } from 'vue'
 
-const person = reactive(headerPerson)
+
 </script>
 
 <template>
   <section class="w-full flex justify-between items-center p-2">
     <div class="flex items-center gap-4">
-      <img class="rounded-full w-20 md:h-20" :src="person.img">
+      <!-- <img class="rounded-full w-20 md:h-20" :src="person.img"> -->
       <div>
-        <p class="text-gray-400">Hola, {{ person.name }}</p>
+        <p class="text-gray-400">Hola, NOMBRE</p>
         <p class="text-2xl text-white">Votaciones</p>
       </div>
     </div>

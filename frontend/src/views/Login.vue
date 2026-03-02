@@ -58,7 +58,7 @@ async function login() {
                 <div class="flex flex-col gap-8 w-80">
 
                     <div class="flex items-center gap-2">
-                        <i class="pi pi-user text-xl"></i>
+                        <i class="pi pi-at text-xl"></i>
                         <InputText v-model="email" placeholder="Email" class="w-full" />
                     </div>
 
